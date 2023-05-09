@@ -17,12 +17,13 @@ class QuizScreen extends StatelessWidget {
           style: TextStyle(fontSize: 20, color: white_color),
         ),
         const SizedBox(height: 30),
-        OutlinedButton(
+        OutlinedButton.icon(
           onPressed: () {},
-          child: const Text(
-            start_quiz_text_button,
-            style: TextStyle(color: white_color),
+          style: OutlinedButton.styleFrom(
+            foregroundColor: white_color,
           ),
+          icon: const Icon(Icons.arrow_right_alt),
+          label: const Text(start_quiz_text_button),
         ),
       ],
     );

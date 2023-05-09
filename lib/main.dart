@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/constante.dart';
 import 'package:quiz_app/gradient_container.dart';
-import 'package:quiz_app/quiz_intro_text.dart';
+import 'package:quiz_app/quiz_screen.dart';
 
 void main() {
   runApp(
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return const Scaffold(
       body: GradientContainer(
         Center(
-          child: QuizIntroText(),
+          child: QuizScreen(),
         ),
         colors: [
           gradient_purple_dark,

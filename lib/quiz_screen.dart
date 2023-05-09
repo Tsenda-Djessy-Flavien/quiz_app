@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/constante.dart';
 
-class QuizIntroText extends StatelessWidget {
-  const QuizIntroText({super.key});
+class QuizScreen extends StatelessWidget {
+  const QuizScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

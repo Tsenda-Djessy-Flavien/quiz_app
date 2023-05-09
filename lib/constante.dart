@@ -10,6 +10,7 @@ const quiz_intro_image = 'assets/images/quiz-logo.png';
 
 const gradient_purple_dark = Color.fromARGB(255, 26, 2, 80);
 const gradient_purple_light = Color.fromARGB(255, 45, 7, 98);
+const opacity_image_color = Color.fromARGB(120, 255, 255, 255);
 
 const startAligment = Alignment.topLeft;
 const endAligment = Alignment.bottomRight;

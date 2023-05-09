@@ -9,7 +9,17 @@ class QuizScreen extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Image.asset(quiz_intro_image, width: 300),
+        //----- 1fst Method ----
+        // Opacity(
+        //   opacity: 0.6,
+        //   child: Image.asset(quiz_intro_image, width: 300),
+        // ),
+        //----- 2nd Mehtod ---- // recommander
+        Image.asset(
+          quiz_intro_image,
+          width: 300,
+          color: opacity_image_color,
+        ),
         const SizedBox(height: 80),
         const Text(
           quiz_intro_text,

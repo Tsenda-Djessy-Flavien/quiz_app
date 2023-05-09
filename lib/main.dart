@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       title: 'Quiz App',
       home: Scaffold(
+        backgroundColor: Colors.purple,
         body: Center(
-          child: Text('Quiz App!'),
+          child: Image.asset('assets/images/quiz-logo.png', width: 200),
         ),
       ),
     ),

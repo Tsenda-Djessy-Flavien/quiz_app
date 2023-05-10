@@ -30,10 +30,21 @@ class _QuizState extends State<Quiz> {
       // activeScreen = const QuestionScreen();
       activeScreen = 'question-screen';
     });
+    // print(activeScreen);
   }
 
   @override
   Widget build(BuildContext context) {
+    // final screenWidget = activeScreen == 'start-screen'
+    //     ? StartScreen(swicthScreen)
+    //     : const QuestionScreen();
+
+    Widget screenWidget = StartScreen(swicthScreen);
+
+    if (activeScreen == 'question-screen') {
+      screenWidget = const QuestionScreen();
+    }
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: title_quiz_text,
@@ -45,9 +56,10 @@ class _QuizState extends State<Quiz> {
           ],
           // nous rendons le contenu de manière conditionnel
           // activeScreen!, // StartScreen(),
-          activeScreen == 'start-screen'
-              ? StartScreen(swicthScreen)
-              : const QuestionScreen(),
+          // activeScreen == 'start-screen'
+          //     ? StartScreen(swicthScreen)
+          //     : const QuestionScreen(),
+          screenWidget,
         ),
       ),
     );

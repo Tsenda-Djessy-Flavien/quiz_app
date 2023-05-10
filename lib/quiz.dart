@@ -12,8 +12,17 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  Widget activeScreen = const StartScreen();
+  Widget? activeScreen;
 
+  // ceci executera avant la methode de construction (Widget build)
+  @override
+  void initState() {
+    activeScreen = StartScreen(
+        swicthScreen); // StartScreen : va initier l'Etat et doit avoir accès à la fun de changement d'Etat.
+    super.initState();
+  }
+
+  /// connecter cette function au boutton (start_screen.dart) qui declanchera l'event
   void swicthScreen() {
     // toute les activités de modification de données qui doivent sur UI
     setState(() {
@@ -32,7 +41,8 @@ class _QuizState extends State<Quiz> {
             gradient_purple_dark,
             gradient_purple_light,
           ],
-          activeScreen, // StartScreen(),
+          // nous rendons le contenu de manière conditionnel
+          activeScreen!, // StartScreen(),
         ),
       ),
     );

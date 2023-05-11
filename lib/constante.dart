@@ -16,3 +16,5 @@ const startAligment = Alignment.topLeft;
 const endAligment = Alignment.bottomRight;
 
 const white_color = Colors.white;
+
+const button_color = Color.fromARGB(255, 33, 1, 95);

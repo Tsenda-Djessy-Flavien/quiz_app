@@ -23,10 +23,16 @@ class _QuestionScreenState extends State<QuestionScreen> {
             style: const TextStyle(color: Colors.white),
           ),
           const SizedBox(height: 30),
-          AnswerButton(onTap: () {}, answerText: currentQuestion.answers[0]),
-          AnswerButton(onTap: () {}, answerText: currentQuestion.answers[1]),
-          AnswerButton(onTap: () {}, answerText: currentQuestion.answers[2]),
-          AnswerButton(onTap: () {}, answerText: currentQuestion.answers[3]),
+          // AnswerButton(onTap: () {}, answerText: currentQuestion.answers[0]),
+          // AnswerButton(onTap: () {}, answerText: currentQuestion.answers[1]),
+          // AnswerButton(onTap: () {}, answerText: currentQuestion.answers[2]),
+          // AnswerButton(onTap: () {}, answerText: currentQuestion.answers[3]),
+
+          // convertir la liste String des reponse de QuizQuestion en liste de Widget button des reponses
+          ...currentQuestion.answers.map((answer) {
+            // ... extrait la liste enfant dans la liste parent // e.g :  strat -> [[1, 2, 3], 4], end -> [1, 2, 3, 4]
+            return AnswerButton(onTap: () {}, answerText: answer);
+          }),
         ],
       ),
     );

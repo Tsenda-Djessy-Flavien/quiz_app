@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/constante.dart';
+import 'package:quiz_app/data/question.dart';
 import 'package:quiz_app/gradient_container.dart';
 import 'package:quiz_app/question_screen.dart';
 import 'package:quiz_app/start_screen.dart';
@@ -14,7 +15,7 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   // Widget? activeScreen;
   var activeScreen = 'start-screen';
-  final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
 
   // ceci executera avant la methode de construction (Widget build)
   // @override
@@ -36,6 +37,15 @@ class _QuizState extends State<Quiz> {
 
   void chooseAnwer(String answer) {
     selectedAnswers.add(answer);
+    // print(selectedAnswers);
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        // une fois que nous avons, nous devons réinitialisé les réponses sélectionnées
+        selectedAnswers = [];
+        activeScreen = 'start-screen';
+      });
+      // print(activeScreen);
+    }
   }
 
   @override

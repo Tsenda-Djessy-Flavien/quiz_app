@@ -5,7 +5,9 @@ import 'package:quiz_app/constante.dart';
 import 'package:quiz_app/data/question.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key});
+  final void Function(String answer) onSelectAnswer;
+
+  const QuestionScreen({required this.onSelectAnswer, super.key});
 
   @override
   State<QuestionScreen> createState() => _QuestionScreenState();
@@ -14,10 +16,11 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionScreen> {
   var currentQuestionIndex = 0;
 
-  void AnswerQuestion() {
+  void answerQuestion(String selectedAnswer) {
     // possible d'incrementer par 1 et Plus.
     // currentQuestionIndex = currentQuestionIndex + 1;
     // currentQuestionIndex += 1; // possible d'incrementer par 1 et Plus.
+    widget.onSelectAnswer(selectedAnswer);
     setState(() {
       currentQuestionIndex++; // incrementer juste par 1
     });
@@ -56,7 +59,13 @@ class _QuestionScreenState extends State<QuestionScreen> {
             // ...currentQuestion.answers -> acceder aux responses de la questions actuelle  // ...currentQuestion.getShuffedAnswers() -> acceder a question actuelle
             ...currentQuestion.getShuffedAnswers().map((answer) {
               // ... extrait la liste enfant dans la liste parent // e.g :  strat -> [[1, 2, 3], 4], end -> [1, 2, 3, 4]
-              return AnswerButton(onTap: AnswerQuestion, answerText: answer);
+              return AnswerButton(
+                onTap: () {
+                  answerQuestion(answer);
+                  // print(answer);
+                },
+                answerText: answer,
+              );
             }),
           ],
         ),

@@ -10,9 +10,20 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
-  final currentQuestion = questions[0];
+  var currentQuestionIndex = 0;
+
+  void AnswerQuestion() {
+    // possible d'incrementer par 1 et Plus.
+    // currentQuestionIndex = currentQuestionIndex + 1;
+    // currentQuestionIndex += 1; // possible d'incrementer par 1 et Plus.
+    setState(() {
+      currentQuestionIndex++; // incrementer juste par 1
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final currentQuestion = questions[currentQuestionIndex];
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -38,7 +49,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
             // ...currentQuestion.answers -> acceder aux responses de la questions actuelle  // ...currentQuestion.getShuffedAnswers() -> acceder a question actuelle
             ...currentQuestion.getShuffedAnswers().map((answer) {
               // ... extrait la liste enfant dans la liste parent // e.g :  strat -> [[1, 2, 3], 4], end -> [1, 2, 3, 4]
-              return AnswerButton(onTap: () {}, answerText: answer);
+              return AnswerButton(onTap: AnswerQuestion, answerText: answer);
             }),
           ],
         ),

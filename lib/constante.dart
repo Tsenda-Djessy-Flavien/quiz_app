@@ -15,6 +15,8 @@ const opacity_image_color = Color.fromARGB(120, 255, 255, 255);
 const startAligment = Alignment.topLeft;
 const endAligment = Alignment.bottomRight;
 
+const text_question_color = Color.fromARGB(255, 201, 153, 251);
 const white_color = Colors.white;
+const intro_text_color = Color.fromARGB(255, 237, 233, 252);
 
 const button_color = Color.fromARGB(255, 33, 1, 95);

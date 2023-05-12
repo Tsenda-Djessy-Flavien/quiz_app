@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/constante.dart';
+import 'package:quiz_app/presentation/pages/question_screen.dart';
+import 'package:quiz_app/presentation/pages/result_screen.dart';
+import 'package:quiz_app/utils/constants.dart';
 import 'package:quiz_app/data/question.dart';
-import 'package:quiz_app/gradient_container.dart';
-import 'package:quiz_app/question_screen.dart';
-import 'package:quiz_app/result_screen.dart';
-import 'package:quiz_app/start_screen.dart';
+import 'package:quiz_app/presentation/widgets/gradient_container.dart';
+import 'package:quiz_app/presentation/pages/start_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});

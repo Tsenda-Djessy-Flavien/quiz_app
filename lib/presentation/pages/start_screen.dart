@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quiz_app/constante.dart';
+import 'package:quiz_app/utils/constants.dart';
 
 class StartScreen extends StatelessWidget {
   final VoidCallback startQuiz;

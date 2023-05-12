@@ -1,4 +1,4 @@
-import 'package:quiz_app/Models/quiz_question.dart';
+import 'package:quiz_app/domain/models/quiz_question.dart';
 
 final List<QuizQuestion> questions = [
   QuizQuestion(

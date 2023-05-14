@@ -1,8 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/data/question.dart';
 
 class ResultScreen extends StatelessWidget {
   final List<String> chosenAnswers;
   const ResultScreen({required this.chosenAnswers, super.key});
+
+  // afficher la response de l'utisateur par rapport à la question
+  /// Pour se faire on doit conbiner les responses choisies
+  /// avec les questions que nous avons dans le fichiers
+  List<Map<String, Object>> getSummaryData() {
+    final List<Map<String, Object>> summary = [];
+
+    for (var i = 0; i < chosenAnswers.length; i++) {
+      summary.add(
+        {
+          'question_index': i,
+          'question': questions[i].text,
+          'correct_answer': questions[i].answers[0],
+          'user_answer': chosenAnswers[i],
+        },
+      );
+    }
+
+    return summary;
+  }
 
   @override
   Widget build(BuildContext context) {

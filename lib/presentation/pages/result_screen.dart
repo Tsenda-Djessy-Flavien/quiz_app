@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/data/question.dart';
-import 'package:quiz_app/question_summary.dart';
+import 'package:quiz_app/presentation/widgets/questions_summary/questions_summary.dart';
+import 'package:quiz_app/utils/constants.dart';
 
 class ResultScreen extends StatelessWidget {
   final List<String> chosenAnswers;
-  const ResultScreen({required this.chosenAnswers, super.key});
+  final VoidCallback onReStart;
+  const ResultScreen({
+    required this.chosenAnswers,
+    required this.onReStart,
+    super.key,
+  });
 
   // afficher la response de l'utisateur par rapport à la question
   /// Pour se faire on doit conbiner les responses choisies
@@ -44,13 +51,22 @@ class ResultScreen extends StatelessWidget {
           children: [
             Text(
               'You answered $numCorrectAnswer out of $numTotalQuestion questions correctlty!',
+              style: GoogleFonts.lato(
+                color: const Color.fromARGB(255, 230, 200, 253),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
-            QuestionSummary(summaryData),
+            QuestionsSummary(summaryData),
             const SizedBox(height: 30),
             TextButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.restart_alt),
+              onPressed: onReStart,
+              style: TextButton.styleFrom(
+                foregroundColor: white_color,
+              ),
+              icon: const Icon(Icons.refresh),
               label: const Text('Restart Quiz'),
             )
           ],

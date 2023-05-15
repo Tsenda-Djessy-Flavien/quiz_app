@@ -42,7 +42,7 @@ class _QuizState extends State<Quiz> {
     if (selectedAnswers.length == questions.length) {
       setState(() {
         // une fois que nous avons, nous devons réinitialisé les réponses sélectionnées
-        selectedAnswers = [];
+        // selectedAnswers = [];
         activeScreen = 'result-screen';
       });
       // print(activeScreen);

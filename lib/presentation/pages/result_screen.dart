@@ -28,6 +28,13 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestion = questions.length;
+    // where -> permet de filtrer une liste en renvoyant la nouvelle sans changer la liste initiale
+    final numCorrectAnswer = summaryData.where((data) {
+      return data['user_answer'] == data['correct_answer'];
+    }).length;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -35,9 +42,11 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('You answered X out of Y questions correctlty!'),
+            Text(
+              'You answered $numCorrectAnswer out of $numTotalQuestion questions correctlty!',
+            ),
             const SizedBox(height: 30),
-            QuestionSummary(getSummaryData()),
+            QuestionSummary(summaryData),
             const SizedBox(height: 30),
             TextButton.icon(
               onPressed: () {},

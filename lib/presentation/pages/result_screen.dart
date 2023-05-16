@@ -17,6 +17,7 @@ class ResultScreen extends StatelessWidget {
   /// Pour se faire on doit conbiner les responses choisies
   /// avec les questions que nous avons dans le fichiers
   List<Map<String, Object>> getSummaryData() {
+    // get SummaryData {} <- autre facon d'ecrire cette method ou getters
     final List<Map<String, Object>> summary = [];
 
     for (var i = 0; i < chosenAnswers.length; i++) {

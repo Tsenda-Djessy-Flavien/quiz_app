@@ -39,9 +39,12 @@ class ResultScreen extends StatelessWidget {
     final summaryData = getSummaryData();
     final numTotalQuestion = questions.length;
     // where -> permet de filtrer une liste en renvoyant la nouvelle sans changer la liste initiale
-    final numCorrectAnswer = summaryData.where((data) {
-      return data['user_answer'] == data['correct_answer'];
-    }).length;
+    final numCorrectAnswer = summaryData
+        .where((data) => data['user_answer'] == data['correct_answer'])
+        .length;
+    // final numCorrectAnswer = summaryData.where((data) {
+    //   return data['user_answer'] == data['correct_answer'];
+    // }).length;
 
     return SizedBox(
       width: double.infinity,
